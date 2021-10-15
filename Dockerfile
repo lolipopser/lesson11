@@ -1,8 +1,8 @@
-FROM ubuntu
+FROM tomcat:9
 RUN apt update
-RUN apt install tomcat9 -y
+#RUN apt install tomcat9 -y
 RUN apt install tomcat9-admin -y
 ADD tomcat-users.xml /var/lib/tomcat9/conf
-#RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
+RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
 EXPOSE 8080
-CMD ["/usr/share/tomcat9/bin/catalina.sh", "run"]
+CMD ["catalina.sh", "run"]
