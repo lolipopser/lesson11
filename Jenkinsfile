@@ -17,6 +17,7 @@ pipeline {
                      sh 'mvn package'
                      git 'https://github.com/lolipopser/lesson11.git'
                      sh 'docker build -t 20.113.35.233/prod:1.0 . '
+                     sh 'docker push 20.113.35.233/prod:1.0'
 
                     }
 
