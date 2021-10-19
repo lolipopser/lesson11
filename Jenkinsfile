@@ -16,8 +16,8 @@ pipeline {
                      git 'https://github.com/lolipopser/boxf.git'
                      sh 'mvn package'
                      git 'https://github.com/lolipopser/lesson11.git'
-                     sh 'docker build -t 20.113.35.233:8123/prod:1.0 . '
-                     sh 'docker push 20.113.35.233:8123/prod:1.0'
+                     sh 'ls -la'
+                     sh 'cd target && ls -la'
 
                     }
 
