@@ -21,7 +21,12 @@ pipeline {
 
                     }
 
-
+                }
+        stage ('deploy and run app') {
+            agent any
+            steps {
+                sh 'docker rm   '
+            }
         }
 
     }
