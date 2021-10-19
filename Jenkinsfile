@@ -10,15 +10,13 @@ pipeline {
                     image 'build_war:v2.0'
                     registryCredentialsId 'f27d57dd-5835-4003-b45a-b0598a851790'
                     registryUrl 'http://20.113.35.233:8123'
-                   }
+                     }
+                     }
               steps {
 
               }
 
         }
-
-
-
 
     }
 
