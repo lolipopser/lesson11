@@ -25,7 +25,9 @@ pipeline {
         stage ('deploy and run app') {
             agent any
             steps {
-                sh 'docker rm   '
+                sh 'docker rm prod1'
+                sh 'docker run -d -p 8777:8080 --name prod1 20.113.35.233:8123/prod:1.0'
+
             }
         }
 
