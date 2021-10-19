@@ -7,7 +7,7 @@ pipeline {
               agent {
                     docker {
                     args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
-                    image 'build_war:v2.0'
+                    image 'build_war:2.0'
                     registryCredentialsId 'dc917212-dd0b-45fc-ac76-ef4cf0256eb2'
                     registryUrl 'http://20.113.35.233:8123'
                      }
