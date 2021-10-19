@@ -18,6 +18,7 @@ pipeline {
                      git 'https://github.com/lolipopser/lesson11.git'
                      sh 'ls -la'
                      sh 'cd target && ls -la && pwd'
+                     sh 'cp target/hello-1.0.war ./'
 
                     }
 
@@ -25,7 +26,7 @@ pipeline {
         stage ('deploy and run app') {
             agent any
             steps {
-                sh 'docker rm prod1'
+                sh 'docker stop prod1 && rm prod1'
                 sh 'docker run -d -p 8777:8080 --name prod1 20.113.35.233:8123/prod:1.0'
 
             }
