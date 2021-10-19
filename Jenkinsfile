@@ -17,7 +17,7 @@ pipeline {
                      sh 'mvn package'
                      git 'https://github.com/lolipopser/lesson11.git'
                      sh 'ls -la'
-                     sh 'cd target && ls -la'
+                     sh 'cd target && ls -la && pwd'
 
                     }
 
