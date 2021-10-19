@@ -19,7 +19,8 @@ pipeline {
                      sh 'ls -la'
                      sh 'cd target && ls -la && pwd'
                      sh 'cp target/hello-1.0.war ./'
-
+                     sh 'docker build -t 20.113.35.233:8123/prod:1.0 . '
+                     sh 'docker push 20.113.35.233:8123/prod:1.0'
                     }
 
                 }
