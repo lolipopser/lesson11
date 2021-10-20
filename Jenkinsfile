@@ -40,7 +40,7 @@ pipeline {
             steps {
                    sshagent(credentials : ['2e7aadba-7ea6-43f7-86da-98e6b366f871']) {
                    sh '''
-                   ssh -o StrictHostKeyChecking=no user@hostname.com uptime
+                   ssh -o StrictHostKeyChecking=no azureuser@20.79.251.46 uptime
                    ssh azureuser@20.79.251.46
                    sudo su
                    '''
