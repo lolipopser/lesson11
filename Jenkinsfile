@@ -6,9 +6,9 @@ pipeline {
               agent any
               steps {
                     git 'https://github.com/lolipopser/lesson11.git'
-                    docker build -t builder:2.1 ./builder
-                    docker tag builder:2.1 20.79.251.46:8123/builder:2.1
-                    docker push  20.79.251.46:8123/builder:2.1
+                    sh 'docker build -t builder:2.1 ./builder'
+                    sh 'docker tag builder:2.1 20.79.251.46:8123/builder:2.1'
+                    sh 'docker push  20.79.251.46:8123/builder:2.1'
                 }
               }
         stage ('Build war and put it to container'){
