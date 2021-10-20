@@ -29,16 +29,22 @@ pipeline {
                      sh 'mvn package'
                      git 'https://github.com/lolipopser/lesson11.git'
                      sh 'cp target/hello-1.0.war ./'
-                     sh 'docker build -t 20.113.35.233:8123/prod:1.0 . '
-                     sh 'docker push 20.113.35.233:8123/prod:1.0'
+                     sh 'docker build -t 20.79.251.46:8123/prod:1.0 . '
+                     sh 'docker push 20.79.251.46:8123/prod:1.0'
                     }
 
                 }
         stage ('deploy and run app') {
             agent any
             steps {
-
-                sh 'docker run -d -p 8777:8080 --name prod1 20.113.35.233:8123/prod:1.0'
+                   sshagent(credentials : ['2e7aadba-7ea6-43f7-86da-98e6b366f871']) {
+                   sh '''
+                   ssh-keyscan -t rsa,dsa 20.79.251.46 >> ~/.ssh/known_hosts
+                   ssh azureuser@20.79.251.46
+                   sudo su
+                   '''
+                }
+                /*sh 'docker run -d -p 8777:8080 --name prod1 20.113.35.233:8123/prod:1.0'*/
 
             }
         }
