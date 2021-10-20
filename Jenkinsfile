@@ -29,7 +29,7 @@ pipeline {
                      sh 'mvn package'
                      git 'https://github.com/lolipopser/lesson11.git'
                      sh 'cp target/hello-1.0.war ./'
-                     sh 'docker build -t 20.79.251.46:8123/prod:1.0 . '
+                     sh 'docker build -t 20.79.251.46:8123/prod:1.0 ./prod '
                      sh 'docker push 20.79.251.46:8123/prod:1.0'
                     }
 
