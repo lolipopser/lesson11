@@ -6,10 +6,10 @@ pipeline {
               agent any
               steps {
                     git 'https://github.com/lolipopser/lesson11.git'
-                    sh 'docker build -t builder:2.1 ./builder'
-                    sh 'docker tag builder:2.1 20.79.251.46:8123/builder:2.1'
-
-                    sh 'docker push 20.79.251.46:8123/builder:2.1'
+                    docker.withRegistry('http://20.79.251.46:8123', 'dc917212-dd0b-45fc-ac76-ef4cf0256eb2') {
+                    def customImage = docker.build("builder:2.1")
+                    /* Push the container to the custom Registry */
+                    customImage.push()
                 }
               }
         stage ('Build war and put it to container'){
