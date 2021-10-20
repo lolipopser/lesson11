@@ -10,6 +10,7 @@ pipeline {
                     def customImage = docker.build("builder:2.1")
                     /* Push the container to the custom Registry */
                     customImage.push()
+                    }
                 }
               }
         stage ('Build war and put it to container'){
