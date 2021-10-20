@@ -42,12 +42,12 @@ environment {
                    sshagent(credentials : ['2e7aadba-7ea6-43f7-86da-98e6b366f871']) {
                    sh '''
                    ssh -o StrictHostKeyChecking=no azureuser@20.79.251.46 uptime
-                   ssh azureuser@20.79.251.46
+                   ssh azureuser@20.79.251.46 << EOF
                    sudo su
                    echo $REG_CREDENTIALS_PSW | docker login 20.79.251.46:8123 -u $REG_CREDENTIALS_USR --password-stdin
                    docker pull 20.79.251.46:8123/prod:1.0
                    docker run -d -p 8777:8080 20.79.251.46:8123/prod:1.0
-                   '''
+                   EOF'''
                 }
                 /*sh 'docker run -d -p 8777:8080 --name prod1 20.113.35.233:8123/prod:1.0'*/
 
