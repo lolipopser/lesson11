@@ -43,6 +43,8 @@ pipeline {
                    ssh -o StrictHostKeyChecking=no azureuser@20.79.251.46 uptime
                    ssh azureuser@20.79.251.46
                    sudo su
+                   docker pull 20.79.251.46:8123/prod:1.0
+                   docker run -d -p 8777:8080 --name prod1 prod:1.0
                    '''
                 }
                 /*sh 'docker run -d -p 8777:8080 --name prod1 20.113.35.233:8123/prod:1.0'*/
