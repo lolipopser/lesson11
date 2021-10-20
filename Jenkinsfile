@@ -6,10 +6,12 @@ pipeline {
               agent any
               steps {
                     git 'https://github.com/lolipopser/lesson11.git'
+                    script {
                     docker.withRegistry('http://20.79.251.46:8123', 'dc917212-dd0b-45fc-ac76-ef4cf0256eb2') {
                     def customImage = docker.build("builder:2.1")
                     /* Push the container to the custom Registry */
                     customImage.push()
+                    }
                     }
                 }
               }
