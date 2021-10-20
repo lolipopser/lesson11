@@ -2,7 +2,13 @@ pipeline {
     agent none
 
     stages {
-
+        stage ('make container and push in repo'){
+              agent any
+              steps {
+                    git 'https://github.com/lolipopser/lesson11.git'
+                    sh 'docker compose build'
+                }
+              }
         stage ('Build war and put it to container'){
               agent {
                     docker {
