@@ -47,7 +47,7 @@ environment {
                    echo $REG_CREDENTIALS_PSW | docker login 20.79.251.46:8123 -u $REG_CREDENTIALS_USR --password-stdin
                    docker pull 20.79.251.46:8123/prod:1.0
                    docker run -d -p 8777:8080 20.79.251.46:8123/prod:1.0
-                   EOF'''
+                   '''
                 }
                 /*sh 'docker run -d -p 8777:8080 --name prod1 20.113.35.233:8123/prod:1.0'*/
 
