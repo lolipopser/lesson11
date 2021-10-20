@@ -40,7 +40,7 @@ pipeline {
             steps {
                    sshagent(credentials : ['2e7aadba-7ea6-43f7-86da-98e6b366f871']) {
                    sh '''
-                   ssh-keyscan -t rsa,dsa 20.79.251.46 >> ~/.ssh/known_hosts
+                   ssh -o StrictHostKeyChecking=no user@hostname.com uptime
                    ssh azureuser@20.79.251.46
                    sudo su
                    '''
